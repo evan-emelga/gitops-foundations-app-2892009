@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'org.springframework.boot' version '2.4.4'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.4.4'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.4.4'
+    implementation 'io.micrometer:micrometer-registry-prometheus:1.6.5'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.4.4'
+}
+
+group = 'com.linkedin'
+version = '2.0.0.RELEASE'
+description = 'gitops-demo'
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}

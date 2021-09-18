@@ -1,0 +1,4 @@
+com/linkedin/gitops/AppInfoController.java
+ com.linkedin.gitops.AppInfoController
+com/linkedin/gitops/GitopsDemoApplication.java
+ com.linkedin.gitops.GitopsDemoApplication
